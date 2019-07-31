@@ -3,6 +3,7 @@
 import os
 import time
 import random 
+import math
 
 print("Play the numbers game!")
 range = int(input("\nWhat do you want the max number to be?"))
@@ -15,7 +16,20 @@ while thinkingTime > 0:
 	thinkingTime -= 1
 	time.sleep(1)
 
-print("\nI've got it!\n")
+guess = ""
+optNumGuesses = 0
+maxNum = range
+minNum = 0
+while guess != num:
+	guess = math.floor((maxNum + minNum)/2)
+	if guess < num:
+		minNum = guess
+	elif guess > num:
+		maxNum = guess
+
+	optNumGuesses += 1	
+
+print("\nI've got it!")
 guess = ""
 numGuesses = 0
 while guess != num:
@@ -27,3 +41,4 @@ while guess != num:
 
 	numGuesses += 1	
 print("YOU DID IT!! It only took you " + str(numGuesses) + " guesses!")
+print("The optimal search finds this number in " + str(optNumGuesses) + " guesses.")
