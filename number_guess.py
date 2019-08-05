@@ -41,4 +41,4 @@ while guess != num:
 
 	numGuesses += 1	
 print("YOU DID IT!! It only took you " + str(numGuesses) + " guesses!")
-print("The optimal search finds this number in " + str(optNumGuesses) + " guesses.")
+print("Binary search finds this number in " + str(optNumGuesses) + " guesses.")
